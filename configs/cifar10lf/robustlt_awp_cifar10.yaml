@@ -1,0 +1,33 @@
+
+method: robustlt_awp
+method_opt:
+  label_smoothing: 0.
+  awp_gamma: 0.005
+  awp_warmup: 0
+  robustlt_alpha: 0.3
+  robustlt_beta: 0.8
+
+# dataset
+augment: base
+data: cifar10lf
+imbalance_rate: 50
+
+# model
+model: wrn-28-10
+classifier: FC
+classifier_opt: ~
+
+# optimizer
+batch_size: 128
+batch_size_validation: 128
+num_epochs: 200
+lr: 0.1
+scheduler: step
+scheduler_opt:
+  gamma: 0.1
+  milestones:
+    - 100
+    - 150
+
+
+

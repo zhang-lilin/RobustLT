@@ -1,0 +1,29 @@
+
+method: atbsl
+method_opt:
+  tau_b: 1.0
+  label_smoothing: 0.
+
+# dataset
+augment: aua
+data: tinylf
+imbalance_rate: 10
+
+# model
+model: wrn-28-10
+classifier: FC
+classifier_opt: ~
+
+# optimizer
+num_epochs: 100
+lr: 0.1
+batch_size: 128
+test_batch_size: 128
+scheduler: step
+scheduler_opt:
+  gamma: 0.1
+  milestones:
+    - 75
+    - 90
+
+

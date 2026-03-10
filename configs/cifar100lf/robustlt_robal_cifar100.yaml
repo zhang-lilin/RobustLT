@@ -1,0 +1,43 @@
+
+# method
+method: robustlt_robal
+method_opt:
+  m: 0.1
+  s: 10
+  tau_b: 1.5
+  tau_m: 0.3
+  beta: 6.0
+  beta_adv: 1.0
+  robustlt_alpha: 0.4
+  robustlt_beta: 0.6
+
+# dataset
+augment: base
+data: cifar100lf
+imbalance_rate: 10
+
+# model
+model: wrn-28-10
+classifier: CosPlus
+classifier_opt:
+  bias: False
+  gamma: 0.03125
+  scale: 1
+  mu: 0.9
+
+# optimizer
+num_epochs: 80
+lr: 0.1
+batch_size: 64
+test_batch_size: 128
+scheduler: step
+scheduler_opt:
+  gamma: 0.1
+  milestones:
+    - 60
+    - 75
+attack_iter: 5
+
+
+
+

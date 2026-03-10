@@ -1,0 +1,32 @@
+
+# method
+method: robustlt_pgdat
+method_opt:
+  label_smoothing: 0.
+  robustlt_alpha: 0.4
+  robustlt_beta: 0.6
+
+# dataset
+data: cifar100lf
+augment: base
+imbalance_rate: 10
+
+# model
+model: wrn-28-10
+classifier: FC
+classifier_opt: ~
+
+# optimizer
+batch_size: 128
+batch_size_validation: 128
+num_epochs: 100
+lr: 0.1
+scheduler: step
+scheduler_opt:
+  gamma: 0.1
+  milestones:
+    - 75
+    - 90
+
+
+
